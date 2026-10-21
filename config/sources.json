@@ -1,0 +1,13 @@
+{
+  "tela": {
+    "repository": "https://github.com/vinceliuice/Tela-icon-theme.git",
+    "commit": "a1fffc5bfab716bd022dd228ee96fe3965cdb33d"
+  },
+  "blur_my_shell": {
+    "uuid": "blur-my-shell@aunetx",
+    "version": 76,
+    "shell_versions": [46, 47, 48, 49, 50, 51],
+    "url": "https://extensions.gnome.org/download-extension/blur-my-shell@aunetx.shell-extension.zip?version_tag=76770",
+    "sha256": "0dfde0d3575b4c7e32647e94010fa37f15ac933f4fe61c46bfe200e772114d85"
+  }
+}

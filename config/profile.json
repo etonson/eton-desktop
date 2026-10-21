@@ -1,0 +1,32 @@
+{
+  "org.gnome.desktop.interface": {
+    "color-scheme": "'prefer-dark'",
+    "icon-theme": "'Tela-dark'"
+  },
+  "org.gnome.shell.extensions.blur-my-shell.panel": {
+    "blur": "true",
+    "style-panel": "2",
+    "force-light-text": "true"
+  },
+  "org.gnome.shell.extensions.blur-my-shell.dash-to-dock": {
+    "blur": "true",
+    "style-dash-to-dock": "2"
+  },
+  "org.gnome.shell.extensions.blur-my-shell.overview": {
+    "blur": "true",
+    "style-components": "2"
+  },
+  "org.gnome.shell.extensions.blur-my-shell.popup": {
+    "blur": "true",
+    "style-popup": "2"
+  },
+  "org.gnome.shell.extensions.blur-my-shell.applications": {
+    "blur": "true",
+    "enable-all": "false",
+    "whitelist": "['org.gnome.Ptyxis', 'org.gnome.Terminal', 'org.gnome.Nautilus', 'google-chrome', 'firefox_firefox']",
+    "opacity": "190",
+    "dynamic-opacity": "true",
+    "sigma": "40",
+    "brightness": "0.75"
+  }
+}
