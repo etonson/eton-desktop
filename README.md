@@ -54,7 +54,9 @@ tests/
 
 ### Shell 元件模糊（Blur my Shell）
 
-`panel`（頂欄）、`dash-to-dock`（Dock）、`overview`（概覽）、`popup`（彈出選單）這幾組都設 `blur = true`，搭配 `style-* = 2`（Blur my Shell 內建的深色樣式）。頂欄另外設 `force-light-text = true`，讓文字維持淺色。
+`panel`（頂欄）、`overview`（概覽）、`popup`（彈出選單）這幾組都設 `blur = true`，搭配 `style-* = 2`（Blur my Shell 內建的深色樣式）。頂欄另外設 `force-light-text = true`，讓文字維持淺色。
+
+`dash-to-dock`（Dock）刻意設成 `blur = false`。Blur my Shell v76 的 Dock 模糊在登入時會強制整個畫面立即排版（`components/dock/dock_surface.js` 的 `update_size`），這時「顯示應用程式」的格狀畫面還沒有圖示，GNOME Shell 50 的 `IconGridLayout.adaptToSize` 會把欄、列數算成 0 且之後不再重算，結果應用程式清單整個空白，系統紀錄出現 `this._pages[pageIndex] is undefined`。在 Ubuntu Dock + GNOME 50 上實測：開啟時連續兩次登入都重現，關閉後消失。升級 Blur my Shell 或 GNOME 後可以再開回來測試。
 
 ### 應用程式視窗毛玻璃（`org.gnome.shell.extensions.blur-my-shell.applications`）
 

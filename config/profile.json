@@ -9,7 +9,7 @@
     "force-light-text": "true"
   },
   "org.gnome.shell.extensions.blur-my-shell.dash-to-dock": {
-    "blur": "true",
+    "blur": "false",
     "style-dash-to-dock": "2"
   },
   "org.gnome.shell.extensions.blur-my-shell.overview": {
