@@ -56,7 +56,9 @@ tests/
 
 `panel`（頂欄）、`overview`（概覽）、`popup`（彈出選單）這幾組都設 `blur = true`，搭配 `style-* = 2`（Blur my Shell 內建的深色樣式）。頂欄另外設 `force-light-text = true`，讓文字維持淺色。
 
-`dash-to-dock`（Dock）刻意設成 `blur = false`。Blur my Shell v76 的 Dock 模糊在登入時會強制整個畫面立即排版（`components/dock/dock_surface.js` 的 `update_size`），這時「顯示應用程式」的格狀畫面還沒有圖示，GNOME Shell 50 的 `IconGridLayout.adaptToSize` 會把欄、列數算成 0 且之後不再重算，結果應用程式清單整個空白，系統紀錄出現 `this._pages[pageIndex] is undefined`。在 Ubuntu Dock + GNOME 50 上實測：開啟時連續兩次登入都重現，關閉後消失。升級 Blur my Shell 或 GNOME 後可以再開回來測試。
+`dash-to-dock`（Dock）刻意設成 `blur = false`。Blur my Shell v76 的 Dock 模糊在登入時會強制整個畫面立即排版（`components/dock/dock_surface.js` 的 `update_size`），這時「顯示應用程式」的格狀畫面還沒有圖示，GNOME Shell 50 的 `IconGridLayout.adaptToSize` 會把欄、列數算成 0 且之後不再重算，結果應用程式清單整個空白，系統紀錄出現 `this._pages[pageIndex] is undefined`。在 Ubuntu Dock + GNOME 50 上實測：開啟時連續兩次登入都重現，關閉後消失。
+
+上游已回報（[aunetx/blur-my-shell#1159](https://github.com/aunetx/blur-my-shell/issues/1159)），修正已在 [#1168](https://github.com/aunetx/blur-my-shell/pull/1168) 合併進 master（2026-10-21），但截至當天 extensions.gnome.org 仍是 v76。等 `config/sources.json` 升到含此修正的版本後，再把 Dock 模糊開回來。
 
 ### 應用程式視窗毛玻璃（`org.gnome.shell.extensions.blur-my-shell.applications`）
 
@@ -64,7 +66,7 @@ tests/
 |---|---|---|
 | `blur` | `true` | 開啟視窗模糊 |
 | `enable-all` | `false` | 只模糊白名單裡的 App |
-| `whitelist` | 終端機、Nautilus、Chrome、Firefox | 視窗 WM_CLASS，不分大小寫，可用 `*` 萬用字元 |
+| `whitelist` | 終端機（Ptyxis、GNOME Terminal、WezTerm）、Nautilus、Chrome、Firefox | 視窗 WM_CLASS，不分大小寫，可用 `*` 萬用字元 |
 | `opacity` | `190` | 視窗不透明度，0–255；越低越通透 |
 | `dynamic-opacity` | `true` | 視窗操作中時自動變得比較不透明 |
 | `sigma` | `40` | 模糊程度；越高越柔和，但 GPU 負擔較大 |

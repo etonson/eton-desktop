@@ -23,7 +23,7 @@
   "org.gnome.shell.extensions.blur-my-shell.applications": {
     "blur": "true",
     "enable-all": "false",
-    "whitelist": "['org.gnome.Ptyxis', 'org.gnome.Terminal', 'org.gnome.Nautilus', 'google-chrome', 'firefox_firefox']",
+    "whitelist": "['org.gnome.Ptyxis', 'org.gnome.Terminal', 'org.wezfurlong.wezterm', 'org.gnome.Nautilus', 'google-chrome', 'firefox_firefox']",
     "opacity": "190",
     "dynamic-opacity": "true",
     "sigma": "40",
