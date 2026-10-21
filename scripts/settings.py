@@ -144,11 +144,16 @@ def apply(dry_run=False):
     if not (DATA / 'icons/Tela-dark/index.theme').exists():
         raise RuntimeError('Tela-dark is missing. Run ./scripts/install.sh first.')
     check()
+    shell = settings('org.gnome.shell')
+    if (all(settings(schema_id).get_value(key).equal(value) for schema_id, key, value in values)
+            and UUID in shell.get_strv('enabled-extensions')
+            and UUID not in shell.get_strv('disabled-extensions')):
+        print('Already up to date.')
+        return
     save_backup(values)
     for schema_id, key, value in values:
         if not settings(schema_id).set_value(key, value):
             raise RuntimeError(f'Could not write {schema_id} {key}')
-    shell = settings('org.gnome.shell')
     set_membership(shell, 'enabled-extensions', True)
     set_membership(shell, 'disabled-extensions', False)
     Gio.Settings.sync()

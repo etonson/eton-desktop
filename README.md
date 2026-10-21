@@ -25,12 +25,14 @@ tests/
 
 ## 使用方法
 
+新機器建議用 [eton-ansible](https://github.com/etonson/eton-ansible) 的 `workspace.yml` 一鍵部署：它會把本 repo 鎖定在 `desktop_version` 指定的 commit，素材未安裝或版本不符時跑 `install.sh`，否則只跑 `settings.py apply`。homelab 不會部署。手動使用方式如下：
+
 ```sh
 ./scripts/install.sh            # 第一次安裝：下載素材＋套用 profile
 ./scripts/install.sh --check    # 只檢查環境
 
 ./scripts/settings.py apply --dry-run   # 預覽會寫入哪些值
-./scripts/settings.py apply             # 套用 profile.json
+./scripts/settings.py apply             # 套用 profile.json；已一致時印出 Already up to date. 且不寫入
 ./scripts/settings.py status            # 顯示目前值與備份位置
 ./scripts/settings.py restore           # 還原成第一次套用前的設定
 
