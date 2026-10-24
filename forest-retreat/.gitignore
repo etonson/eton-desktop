@@ -1,0 +1,3 @@
+# Runtime snapshots live under XDG_DATA_HOME, never in version control.
+/backups/
+/state/
